@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prolog животни с различни правила и GIF</title>
+  <title>mProlog животни с различни правила и GIF</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -90,7 +90,7 @@
 
   <textarea id="prolog-input">
 % Примери на заявки:
-is_mammal(X).
+is_limbless(X).
 is_big(X).
 is_predator(X).
   </textarea><br />
@@ -110,7 +110,7 @@ animal(skink).
 animal(tiger).
 
 % Козина (бозайници)
-mammal(python).
+limbless(python).
 
 
 % Големи животни
@@ -121,7 +121,7 @@ big(skink).
 predator(tiger).
 
 % Правила
-is_mammal(X) :- mammal(X).
+is_limbless(X) :- limbless(X).
 is_big(X) :- big(X).
 is_predator(X) :- predator(X).
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prolog. животни с различни правила и GIF</title>
+  <title>Prolog животни с различни правила и GIF</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -90,9 +90,9 @@
 
   <textarea id="prolog-input">
 % Примери на заявки:
-is_limbless(X).
-is_small(X).
-is_hasshell(X).
+is_mammal(X).
+is_big(X).
+is_predator(X).
   </textarea><br />
   <button onclick="runProlog()">Изпълни</button>
 
@@ -107,23 +107,35 @@ is_hasshell(X).
     const knowledge = `
       animal(python).
 animal(skink).
-animal(tortoise).
+animal(tiger).
 
-limbless(python).
+% Козина (бозайници)
+mammal(python).
 
-small(skink).
 
-hasshell(tiger).
+% Големи животни
+big(skink).
 
-is_limbless(X) :- limbless(X).
-is_small(X) :- small(X).
-is_hasshell(X) :- hasshell(X).
+% Хищници
+
+predator(tiger).
+
+% Правила
+is_mammal(X) :- mammal(X).
+is_big(X) :- big(X).
+is_predator(X) :- predator(X).
+
     `;
 
     session.consult(knowledge);
 
     const animalAnimations = {
-      python: '<img src="https://www.google.com/search?q=snake+python+gif&sca_esv=813765718ccf2407&rlz=1C1GCEU_bgBG1152BG1152&udm=2&biw=1366&bih=641&ei=BB5IaKugGYmLxc8P25a22Ak&ved=0ahUKEwirspvg5uaNAxWJRfEDHVuLDZsQ4dUDCBE&uact=5&oq=snake+python+gif&gs_lp=EgNpbWciEHNuYWtlIHB5dGhvbiBnaWYyBhAAGAgYHjIGEAAYCBgeSNwZUN8GWKATcAF4AJABAJgBeKAB7gSqAQMyLjS4AQPIAQD4AQGYAgegAo8FwgIIEAAYExgHGB7CAgYQABgHGB7CAggQABgHGAgYHpgDAIgGAZIHAzMuNKAHjQqyBwMyLjS4B4cFwgcHMC40LjIuMcgHGw&sclient=img#vhid=bTFdgBWbuk6eZM&vssid=mosaic" />'
+      lion: '<img src="https://images.ecency.com/p/FUkUE5bzkAZT3HzV5tJDiU2ik81PCd4JCyhWnRcDN8XJsVFY3UNB8DCcF6FBnrG9mHUsoB7296D4omrF75j3S9mNdXjzd7j2xiKroEuvcf5umt9qDsRKoeDp3kBezDQscLbJuZaCqh8sgthRd5GukLgMiH16xWrcxhxh.png?format=match&mode=fit" class="animal-gif" alt="Лъв анимация" />',
+      elephant: '<img src="https://media.giphy.com/media/2v170e71aanfi/giphy.gif" class="animal-gif" alt="Слон анимация" />',
+      tiger: '<img src="https://media.giphy.com/media/fANhQpcPGr2hO/giphy.gif" class="animal-gif" alt="Тигър анимация" />',
+      crocodile: '<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" class="animal-gif" alt="Крокодил анимация" />',
+      kangaroo: '<img src="https://media.giphy.com/media/l0MYEw7nYdf6r62aI/giphy.gif" class="animal-gif" alt="Кенгуру анимация" />',
+      owl: '<img src="https://media.giphy.com/media/3ohs4B9Zz54HXGvoYs/giphy.gif" class="animal-gif" alt="Бухал анимация" />'
     };
 
     function runProlog() {

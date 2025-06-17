@@ -91,8 +91,8 @@
   <textarea id="prolog-input">
 % Примери на заявки:
 is_limbless(X).
-is_big(X).
-is_predator(X).
+is_small(X).
+is_withshell(X).
   </textarea><br />
   <button onclick="runProlog()">Изпълни</button>
 
@@ -107,23 +107,18 @@ is_predator(X).
     const knowledge = `
       animal(python).
 animal(skink).
-animal(tiger).
+animal(turtle).
 
-% Козина (бозайници)
 limbless(python).
 
+small(skink).
 
-% Големи животни
-big(skink).
-
-% Хищници
-
-predator(tiger).
+withshell(tiger).
 
 % Правила
 is_limbless(X) :- limbless(X).
-is_big(X) :- big(X).
-is_predator(X) :- predator(X).
+is_small(X) :- small(X).
+is_withshell(X) :- withshell(X).
 
     `;
 
@@ -131,8 +126,8 @@ is_predator(X) :- predator(X).
 
     const animalAnimations = {
       python: '<img src="https://images.ecency.com/p/FUkUE5bzkAZT3HzV5tJDiU2ik81PCd4JCyhWnRcDN8XJsVFY3UNB8DCcF6FBnrG9mHUsoB7296D4omrF75j3S9mNdXjzd7j2xiKroEuvcf5umt9qDsRKoeDp3kBezDQscLbJuZaCqh8sgthRd5GukLgMiH16xWrcxhxh.png?format=match&mode=fit" class="animal-gif" alt="Лъв анимация" />',
-      elephant: '<img src="https://media.giphy.com/media/2v170e71aanfi/giphy.gif" class="animal-gif" alt="Слон анимация" />',
-      tiger: '<img src="https://media.giphy.com/media/fANhQpcPGr2hO/giphy.gif" class="animal-gif" alt="Тигър анимация" />',
+      skink: '<img src="https://media.giphy.com/media/2v170e71aanfi/giphy.gif" class="animal-gif" alt="Слон анимация" />',
+      turtle: '<img src="https://media.giphy.com/media/fANhQpcPGr2hO/giphy.gif" class="animal-gif" alt="Тигър анимация" />',
       crocodile: '<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" class="animal-gif" alt="Крокодил анимация" />',
       kangaroo: '<img src="https://media.giphy.com/media/l0MYEw7nYdf6r62aI/giphy.gif" class="animal-gif" alt="Кенгуру анимация" />',
       owl: '<img src="https://media.giphy.com/media/3ohs4B9Zz54HXGvoYs/giphy.gif" class="animal-gif" alt="Бухал анимация" />'
